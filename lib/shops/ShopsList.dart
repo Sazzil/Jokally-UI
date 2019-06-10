@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 //import 'GridList.dart';
 import 'package:app_jokally/model/Items.dart';
 import 'ItemList.dart';
-import '../bottomNavBar.dart';
+//import '../bottomNavBar.dart';
 
 class ShopList extends StatefulWidget {
   @override
