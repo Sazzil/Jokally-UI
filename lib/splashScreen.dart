@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'shops/ShopsList.dart';
-import 'bottomNavBar.dart';
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Timer(
         Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => BottomNavBar())));
+            MaterialPageRoute(builder: (context) => ShopList())));
   }
 
   @override
