@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'shops/ShopsList.dart';
-
+import '../pages/shops/ShopsList.dart';
 
 class MyHomePage extends StatefulWidget {
   @override

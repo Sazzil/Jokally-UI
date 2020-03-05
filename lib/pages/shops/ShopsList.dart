@@ -1,10 +1,14 @@
+/* import 'dart:js'; */
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 //import 'GridList.dart';
 import 'package:app_jokally/model/Items.dart';
 import 'ItemList.dart';
-import '../bottomNavBar.dart';
+import '../../ui/bottomNavBar.dart';
+import 'Favorite.dart';
+import '../../ui/customFilter.dart';
 
 class ShopList extends StatefulWidget {
   @override
@@ -30,7 +34,7 @@ class _JkShopList extends State<ShopList> {
                     titleSpacing: 0,
                     backgroundColor: Colors.white,
                     elevation: 1.0,
-                    title: _searchCard(),
+                    title: _searchCard(context),
                   ),
                   SliverToBoxAdapter(
                     child: SizedBox(height: 15),
@@ -45,12 +49,14 @@ class _JkShopList extends State<ShopList> {
                     child: ScrollableBadges(),
                   ),
                   SliverToBoxAdapter(
-                    child: SizedBox(height: 15),
+                    child: SizedBox(height: 25),
                   ),
                   SliverGrid(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
-                      childAspectRatio: orientation == Orientation.portrait ? 0.79 : 0.92,
+                      crossAxisCount:
+                          orientation == Orientation.portrait ? 2 : 3,
+                      childAspectRatio:
+                          orientation == Orientation.portrait ? 0.79 : 0.92,
                     ),
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
@@ -65,13 +71,13 @@ class _JkShopList extends State<ShopList> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }
 
 //SEARCH SECTION
-Widget _searchCard() => Container(
+Widget _searchCard(BuildContext context) => Container(
       child: Card(
         color: Color.fromRGBO(247, 255, 247, 1),
         elevation: 5.0,
@@ -99,9 +105,15 @@ Widget _searchCard() => Container(
                   autocorrect: false,
                 ),
               ),
-              Icon(
-                Icons.menu,
+              IconButton(
+                icon: Icon(Icons.menu),
                 color: Color.fromRGBO(41, 47, 54, 1),
+                onPressed: (){
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => CustomFilter()
+                  );
+                },
               ),
             ],
           ),
@@ -142,9 +154,16 @@ class ScrollableBadges extends StatelessWidget {
           return Container(
             padding: EdgeInsets.symmetric(horizontal: 5),
             child: RaisedButton(
-              elevation: 5,
+              elevation: 1,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavoriteShop(),
+                  ),
+                );
+              },
               color: Color.fromRGBO(36, 110, 185, 1),
               child: Text(
                 '${entries[index]}',

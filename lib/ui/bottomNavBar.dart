@@ -10,44 +10,12 @@
 // bar items. The first one is selected.](https://flutter.github.io/assets-for-api-docs/assets/material/bottom_navigation_bar.png)
 
 import 'package:flutter/material.dart';
-import 'shops/ShopsList.dart';
-import 'map/JkMap.dart';
 
-class BottomNavBar extends StatefulWidget {
-  BottomNavBar({Key key}) : super(key: key);
-
-  @override
-  _BottomNavBarState createState() => _BottomNavBarState();
-}
-
-class _BottomNavBarState extends State<BottomNavBar> {
-ShopList shopList;
-JkMap jkMap;
-List<Widget> pages;
-Widget currentPage;
-int _selectedIndex = 0;
-
-@override
-void initState() {
-  shopList = ShopList();
-  jkMap = JkMap();
-  pages= [shopList, jkMap];
-  currentPage = shopList;
-  super.initState();
-  }
-
-void _onTabTapped(int index) {
-   setState(() {
-     _selectedIndex = index;
-     currentPage = pages[index];
-   });
- }
+class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: currentPage,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+    final botNavBar = new BottomNavigationBar(
+     type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
@@ -66,11 +34,11 @@ void _onTabTapped(int index) {
             title: Text('Profile'),
           ),
         ],
-        currentIndex: _selectedIndex,
+        //currentIndex: 1,
         selectedItemColor: Color.fromRGBO(36, 110, 185, 1),
-        onTap: _onTabTapped,
+        //onTap: _onTabTapped,
         backgroundColor: Color.fromRGBO(247, 255, 247, 1),
-      ),
     );
+    return botNavBar;
   }
 }

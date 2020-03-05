@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'splashScreen.dart';
+import 'ui/splashScreen.dart';
 import 'package:flutter/rendering.dart';
 void main() {
   //debugPaintSizeEnabled=true;
