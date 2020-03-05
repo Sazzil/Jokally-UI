@@ -21,6 +21,7 @@ class _JkShopList extends State<ShopList> {
   Widget build(BuildContext context) {
     itemList = _itemList();
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.all(5),

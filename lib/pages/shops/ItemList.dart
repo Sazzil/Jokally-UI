@@ -28,7 +28,6 @@ class ItemList extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
             child: Text(
               items.shopName,
-              //'Asian Kiosk',
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: TextStyle(
@@ -49,7 +48,6 @@ class ItemList extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 18.0 / 12.0,
                     child: Image.asset(
-                    //'assets/images/shop1.png',
                     items.shopImg1,
                     fit: BoxFit.cover,
                   ),
@@ -61,7 +59,6 @@ class ItemList extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         items.street,
-                        //'Dahlenar Straße 42',
                         style: TextStyle(
                           fontSize: 14.0,
                           color: Color.fromRGBO(41, 47, 54, 1),
@@ -70,7 +67,6 @@ class ItemList extends StatelessWidget {
                       ),
                       Text(
                         items.city,
-                        //'41239 Mönchengladbach',
                         style: TextStyle(
                           fontSize: 14.0,
                           color: Color.fromRGBO(41, 47, 54, 1),
